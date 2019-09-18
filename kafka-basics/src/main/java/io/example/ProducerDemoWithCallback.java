@@ -1,4 +1,4 @@
-package io.example.demo;
+package io.example;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
 
-public class ProducerDemoKeys {
+public class ProducerDemoWithCallback {
 
     public static void main(String[] args) {
         Logger logger = LoggerFactory.getLogger(ProducerDemoWithCallback.class);
@@ -26,21 +26,18 @@ public class ProducerDemoKeys {
         // Create the producer
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 
-        for (int i = 0; i < 10; ++i) {
-            // Create a producer record
-            final String key = "id_" + i, message = "Hello World " + i;
-            ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, message);
+        // Create a producer record
+        ProducerRecord<String, String> record = new ProducerRecord<>(topic, "Hello World");
 
-            // Send data
+        // Send data
+        for (int i = 0; i < 10; ++i) {
             producer.send(record, (recordMetadata, e) -> {
                 if (e != null) {
                     logger.error("-----> Message send failed", e);
                     return;
                 }
 
-                logger.info("-----> Message sent successfully, " +
-                                "key: {}, topic: {}, partition: {}, offset: {}, timestamp: {}",
-                        key,
+                logger.info("-----> Message sent successfully, topic: {}, partition: {}, offset: {}, timestamp: {}",
                         recordMetadata.topic(),
                         recordMetadata.partition(),
                         recordMetadata.offset(),

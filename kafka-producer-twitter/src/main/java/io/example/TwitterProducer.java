@@ -1,4 +1,4 @@
-package io.example.twitter;
+package io.example;
 
 import com.twitter.hbc.ClientBuilder;
 import com.twitter.hbc.core.Client;

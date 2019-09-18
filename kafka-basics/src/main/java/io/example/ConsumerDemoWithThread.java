@@ -1,4 +1,4 @@
-package io.example.demo;
+package io.example;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
