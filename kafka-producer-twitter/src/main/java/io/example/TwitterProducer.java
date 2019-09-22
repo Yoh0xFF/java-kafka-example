@@ -26,13 +26,15 @@ import static com.google.common.collect.Lists.newArrayList;
 
 public class TwitterProducer {
 
-    private Logger logger = LoggerFactory.getLogger(TwitterProducer.class);
+    private final Logger logger = LoggerFactory.getLogger(TwitterProducer.class);
 
     public static void main(String[] args) {
         new TwitterProducer().run();
     }
 
     public void run() {
+        String topicName = "twitter-tweets";
+
         // Create twitter client
         BlockingQueue<String> tweetQueue = new LinkedBlockingQueue<>(100000);
         Client twitterClient = createTwitterClient(tweetQueue);
@@ -56,7 +58,7 @@ public class TwitterProducer {
                 if (tweet != null) {
                     logger.info(tweet);
 
-                    producer.send(new ProducerRecord<>("twitter-tweets", tweet), (recordMetadata, ex) -> {
+                    producer.send(new ProducerRecord<>(topicName, tweet), (recordMetadata, ex) -> {
                         if (ex != null) {
                             logger.error("Kafka producer send failed", ex);
                         }
