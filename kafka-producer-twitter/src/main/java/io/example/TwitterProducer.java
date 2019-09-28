@@ -80,7 +80,7 @@ public class TwitterProducer {
         Hosts hosts = new HttpHosts(Constants.STREAM_HOST);
         StatusesFilterEndpoint endpoint = new StatusesFilterEndpoint();
         List<Long> followings = newArrayList(1234L, 566788L);
-        List<String> terms = newArrayList("kafka", "java");
+        List<String> terms = newArrayList("kafka", "java", "node");
         endpoint.followings(followings);
         endpoint.trackTerms(terms);
 
