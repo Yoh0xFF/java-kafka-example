@@ -1,4 +1,5 @@
 # Java Kafka Example
+
 Sample project demonstrating Kafka usage with Java
 
 - **kafka-basics** - demonstrates basic producer and consumer usage
@@ -7,9 +8,11 @@ Sample project demonstrating Kafka usage with Java
 - **kafka-streams-filter-tweets** - demonstrates kafka streams which filter twitter tweets
 
 ## CLI Commands
+
 This section describes frequently used Kafka CLI commands.
 
 ### Start Kafka
+
 ```shell script
 # Start ZooKeeper server
 bin/zookeeper-server-start.sh config/zookeeper.properties
@@ -19,6 +22,7 @@ bin/kafka-server-start.sh config/server.properties
 ```
 
 ### Kafka Topics CLI
+
 ```shell script
 # Create a Kafka topic
 bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic demo-topic --create --partitions 3 --replication-factor 1
@@ -34,6 +38,7 @@ bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic demo-topic --delet
 ```
 
 ### Kafka Console Producer CLI
+
 ```shell script
 # Start console producer
 bin/kafka-console-producer.sh --broker-list localhost:9092 --topic demo-topic
@@ -46,6 +51,7 @@ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic demo-topic --
 ```
 
 ### Kafka Console Consumer CLI
+
 ```shell script
 # Start console consumer
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic demo-topic
@@ -61,6 +67,7 @@ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic demo-top
 ```
 
 ### Kafka Consumer Groups CLI
+
 ```shell script
 # List all consumer groups
 bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list
