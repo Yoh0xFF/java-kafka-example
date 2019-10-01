@@ -6,6 +6,7 @@ Sample project demonstrating Kafka usage with Java
 - **kafka-producer-twitter** - demonstrates the producer which reads and produces twitter tweets
 - **kafka-consumer-elasticsearch** - demonstrates the consumer which reads and stores twitters tweets in elastic search
 - **kafka-streams-filter-tweets** - demonstrates kafka streams which filter twitter tweets
+- **kafka-spring** - demonstrates kafka usage with spring framework
 
 ## CLI Commands
 
