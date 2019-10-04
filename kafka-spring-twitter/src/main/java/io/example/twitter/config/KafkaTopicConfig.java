@@ -1,4 +1,4 @@
-package io.example.config;
+package io.example.twitter.config;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;

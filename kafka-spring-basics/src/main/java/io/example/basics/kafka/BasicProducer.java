@@ -1,4 +1,4 @@
-package io.example.kafka;
+package io.example.basics.kafka;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,7 +10,7 @@ import static org.apache.commons.lang3.RandomStringUtils.random;
 import static org.apache.commons.lang3.RandomUtils.nextInt;
 
 @Component
-public class Producer {
+public class BasicProducer {
 
     @Value("${kafka.topic}")
     private String topic;

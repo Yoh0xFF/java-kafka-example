@@ -1,11 +1,13 @@
-package io.example;
+package io.example.basics;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
+@ComponentScan(basePackages = "io.example.basics.*")
 @EnableKafka
 @EnableScheduling
 public class App {

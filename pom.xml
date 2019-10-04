@@ -15,7 +15,8 @@
         <module>kafka-producer-twitter</module>
         <module>kafka-consumer-elasticsearch</module>
         <module>kafka-streams-filter-tweets</module>
-        <module>kafka-spring</module>
+        <module>kafka-spring-basics</module>
+        <module>kafka-spring-twitter</module>
     </modules>
 
     <properties>
