@@ -72,10 +72,10 @@ public class TwitterProducer {
     }
 
     public Client createTwitterClient(BlockingQueue<String> msgQueue) {
-        String consumerKey = System.getenv("CONSUMER_KEY");
-        String consumerSecret = System.getenv("CONSUMER_SECRET");
-        String accessToken = System.getenv("ACCESS_TOKEN");
-        String accessTokenSecret = System.getenv("ACCESS_TOKEN_SECRET");
+        String consumerKey = System.getenv("TW_CONSUMER_KEY");
+        String consumerSecret = System.getenv("TW_CONSUMER_SECRET");
+        String accessToken = System.getenv("TW_ACCESS_TOKEN");
+        String accessTokenSecret = System.getenv("TW_ACCESS_TOKEN_SECRET");
 
         Hosts hosts = new HttpHosts(Constants.STREAM_HOST);
         StatusesFilterEndpoint endpoint = new StatusesFilterEndpoint();

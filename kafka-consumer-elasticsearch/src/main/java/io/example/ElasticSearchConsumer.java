@@ -118,9 +118,9 @@ public class ElasticSearchConsumer {
     }
 
     private RestHighLevelClient createClient() {
-        String host = System.getenv("EL_HOST");
-        String user = System.getenv("EL_USER");
-        String pass = System.getenv("EL_PASS");
+        String host = System.getenv("ES_HOST");
+        String user = System.getenv("ES_USER");
+        String pass = System.getenv("ES_PASS");
 
         CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
         credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(user, pass));
