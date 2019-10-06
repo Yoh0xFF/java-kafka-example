@@ -1,5 +1,6 @@
 package io.example.twitter.kafka;
 
+import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.elasticsearch.action.bulk.BulkRequest;
 import org.elasticsearch.action.bulk.BulkResponse;
@@ -26,7 +27,7 @@ public class TwitterConsumer {
 
     @KafkaListener(topics = "${kafka.topic}",
             groupId = "${kafka.groupId}")
-    public void listen(ConsumerRecords<String, String> records) throws IOException {
+    public void listen(Consumer<String, String> consumer, ConsumerRecords<String, String> records) throws IOException {
         if (records.isEmpty()) {
             return;
         }
@@ -43,11 +44,13 @@ public class TwitterConsumer {
 
         BulkResponse indexResponse = elasticSearchClient.bulk(bulkRequest, RequestOptions.DEFAULT);
 
-        logger.info("Document index ids {}",
+        logger.info("[x] Document index ids {}",
                 Arrays.asList(indexResponse.getItems())
                         .stream()
                         .map(bulkItemResponse -> bulkItemResponse.getId())
                         .reduce((id1, id2) -> String.format("%s, %s", id1, id2))
                         .get());
+
+        consumer.commitSync();
     }
 }
